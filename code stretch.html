@@ -275,6 +275,76 @@ console.log(arr); //[8, 10]
 
 
 
+//TODO
+
+
+const fizzBuzz = (num)=>{
+
+const arr = []; 
+
+for (let i = 1; i<num+1; i++ ){
+
+if (i%3 ===0){
+  arr.push('FIZZ');
+
+} else if (i%5 ===0){
+  arr.push('BUZZ');
+
+} else if (i%3 ===0 && i%5=== 0){ 
+arr.push('FIZZBUZZ'); 
+} else {
+  arr.push(i);
+  
+}
+
+}
+
+return arr;
+}
+
+console.log(fizzBuzz(15));
+
+/*
+[ 1,
+  2,  'FIZZ',
+  4,  'BUZZ',
+  'FIZZ',  7,
+  8,  'FIZZ',
+  'BUZZ',  11,
+  'FIZZ',  13,
+  14,  'FIZZBUZZ' ]*/
+
+
+
+//TODO
+
+const countPlurals = (word) => {
+
+  let arr = word.split(' ');
+  //console.log(arr)
+  let count = 0;
+
+  arr.forEach(item => {if (item[item.length-1] === 's'){
+    count++;
+  }}) 
+
+  return count;
+
+}
+
+
+const words = 'foos bar bazzes quq fizzes buzz';
+//assume a plural word ends with an s
+
+console.log(countPlurals(words));
+console.log(countPlurals('x y z'));
+/*
+3
+0
+*/
+
+
+
     </script>
   </body>
 </html>
