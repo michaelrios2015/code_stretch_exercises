@@ -343,6 +343,96 @@ console.log(countPlurals('x y z'));
 0
 */
 
+//TODO
+
+const head = (str, num) => {
+
+const arr = str.split('\n');
+//console.log(arr);
+
+for (let i =0; i < num; i++){
+
+  console.log(arr[i])
+}
+
+
+}
+
+
+
+const tail = (str, num) => {
+
+const arr = str.split('\n');
+
+ for (let i = arr.length-1; i > arr.length - num-1; i--){
+
+  console.log(arr[i])
+}
+
+
+}
+
+
+
+const txt = `the quick brown
+fox jumped
+over the
+fence.`;
+
+console.log(head(txt, 2));
+/*
+the quick brown
+fox jumped
+*/
+
+console.log(tail(txt, 2));
+/*
+over the
+fence.
+*/
+console.log(tail(txt, 3));
+/*
+fox jumped
+over the
+fence.
+*/
+
+//TODO
+
+
+//TODO
+
+
+//not done 
+
+const spinWords = (str, num) => {
+
+const firstPart = str.slice(0, num);
+console.log(str.slice(0, num));
+
+const secondPart = str.slice(num, str.length -1);
+console.log(str.slice(num, str.length -1))
+
+const arr = secondPart.split(' ');
+console.log(arr);
+
+for (let i=0; i<arr.length; i++){
+let newWord = ''
+  for (let j=arr[i].length-1; j >0 ; j--){
+     
+      newWord += arr[i][j];
+
+}
+
+}
+
+
+}
+
+
+console.log(spinWords('stop spinning my words!', 5))
+//stop gninnips my !sdrow
+
 
 
     </script>
