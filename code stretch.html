@@ -332,6 +332,7 @@ const countPlurals = (word) => {
 
 }
 
+console.log("----------countPlurals----------")
 
 const words = 'foos bar bazzes quq fizzes buzz';
 //assume a plural word ends with an s
@@ -367,12 +368,14 @@ const arr = str.split('\n');
  for (let i = arr.length-1; i > arr.length - num-1; i--){
 
   console.log(arr[i])
+  
+
 }
 
 
 }
 
-
+console.log("----------Head or Tails----------")
 
 const txt = `the quick brown
 fox jumped
@@ -404,34 +407,109 @@ fence.
 
 
 //not done 
+//reverse all words with a length higher than the input
+//(im pretty sure i stole this or something very close from codewars)
 
 const spinWords = (str, num) => {
 
-const firstPart = str.slice(0, num);
+//the first part does not need to be changed
+let firstPart = str.slice(0, num);
 console.log(str.slice(0, num));
 
+//the second part need to go through each word to change it 
 const secondPart = str.slice(num, str.length -1);
 console.log(str.slice(num, str.length -1))
 
+//an array of words in the second part but losing the ! not sure why 
 const arr = secondPart.split(' ');
-console.log(arr);
+//console.log(arr);
 
+//go through all the words of the array
 for (let i=0; i<arr.length; i++){
 let newWord = ''
-  for (let j=arr[i].length-1; j >0 ; j--){
+//on each word start at the end to make new reveresed word
+  for (let j=arr[i].length-1; j > -1 ; j--){
+     
      
       newWord += arr[i][j];
+      //console.log(arr[i][j]);
+}
+
+//and the new word to the first part with a space
+firstPart += newWord + ' ';
 
 }
 
+//for some reason the ! is not showing up
+return firstPart;
 }
 
-
-}
-
+console.log("----------spinWords----------")
 
 console.log(spinWords('stop spinning my words!', 5))
 //stop gninnips my !sdrow
+
+
+//TODO
+
+const capEvenLetter=(str)=>{
+  const arr = str.split('')
+  //.forEach(item, index => console)
+  for (let i = 0; i < str.length; i++){
+  //console.log(str[i]);
+    if (i%2 === 0){
+    	arr[i] = arr[i].toUpperCase();
+    }   
+  }
+  return arr.join('');
+}
+
+
+console.log("----------capEvenLetter----------")
+
+const str='hello i am good'
+console.log(capEvenLetter(str));
+//HeLlO I Am gOoD
+
+
+//TODO
+//but this is is the function and needs to iterate the 
+//number each time it is called??
+//it;s just the function within a function thing  
+// const countFrom1 = (func) =>{
+
+// return func();
+
+// }
+
+//this just returns the number it is given
+function counter(num){
+
+let beenCalled = false;
+//console.log(beenCalled);
+
+return function(){
+
+if (!beenCalled){
+  beenCalled = true;
+  return num;
+  } else {
+    return ++num;
+  }
+};
+}
+
+
+const countFrom1 = counter(1);
+console.log("------1")
+console.log(countFrom1());//1
+console.log("------2")
+console.log(countFrom1());//2
+console.log("------3")
+console.log(countFrom1());//3
+const countFrom100 = counter(100);
+console.log(countFrom100());//100
+console.log(countFrom100());//101
 
 
 
