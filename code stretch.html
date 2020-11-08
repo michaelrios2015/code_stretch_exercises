@@ -494,6 +494,8 @@ if (!beenCalled){
   beenCalled = true;
   return num;
   } else {
+
+    beenCalled = true;    
     return ++num;
   }
 };
@@ -511,6 +513,101 @@ const countFrom100 = counter(100);
 console.log(countFrom100());//100
 console.log(countFrom100());//101
 
+//TODO
+
+class Counter {
+  constructor(info) {
+    this.start = info.start;
+    this.step = info.step;
+  	this.firstTime=  true;
+    this.answer = info.start;
+  }
+
+    
+	count() { //console.log(this.start);
+      		//start with start then increment step each time like the other
+      if (this.firstTime){
+        this.firstTime = false;
+        return this.answer;
+      }
+      else {
+      	//let x = this.start
+        this.answer += this.step
+        return this.answer;
+        }
+  }
+  reset() {
+    this.firstTime = true;
+    this.answer = this.start;   
+  }
+}
+
+
+console.log("----------Counter----------")
+
+const counter1 = new Counter({
+  start: 1,
+  step: 3,
+});
+
+console.log(counter1.count());//1
+console.log(counter1.count());//4
+
+const counter2 = new Counter({
+  start: 10,
+  step: 20,
+});
+
+console.log(counter2.count());//10
+console.log(counter2.count());//30
+console.log(counter2.count());//50
+
+counter2.reset();
+console.log(counter2.count());//10
+console.log(counter2.count());//30
+
+
+console.log("----------days from now----------")
+
+
+const daysFromNow = (date) =>{
+
+  //console.log(date);
+  console.log(new Date() - date)
+  console.log(Math.round((date - new Date())/86400000));
+}
+
+
+console.log(daysFromNow(new Date('07/04/2020')));//logs days from now
+
+
+//TODO
+
+class TempTracker {
+  constructor() {
+    this.temps = [];
+  }
+  
+  push(temp){
+      this.temps.push(temp);
+  }
+
+  average(){
+      //this.temps.push(temp);
+    return this.temps.reduce((accum, temp)=> accum +temp)/this.temps.length;
+  }
+};
+
+
+const tempTracker = new TempTracker();
+
+tempTracker.push(80);
+tempTracker.push(90);
+tempTracker.push(70);
+
+console.log(tempTracker.average());//80 (average of 80 + 90 + 70)
+tempTracker.push(30);
+console.log(tempTracker.average());//67.5
 
 
     </script>
