@@ -645,6 +645,51 @@ console.log(intersect([], []));//[]
 console.log(intersect(['foo', 'bar', 'bazz'], ['bazz', 'quq']));//['bazz']
 
 
+//TODO
+
+function union (){
+
+let arr = [];
+let finArr = [];
+
+let args = Array.from(arguments);
+
+//console.log(args);
+
+for (let i=0; i < args.length; i++){
+
+  for (let j=0; j < args[i].length; j++){
+
+      arr.push(args[i][j]);
+   
+}
+}
+//console.log("-----arr-------");
+
+//console.log(arr);
+
+for (let i = 0; i < arr.length; i++){
+
+    if (arr.indexOf(arr[i]) === i){
+      finArr.push(arr[i]);
+
+    }
+
+}
+
+// console.log("-----finArr-------");
+
+// console.log(finArr);
+
+ return finArr;
+
+}
+
+console.log(union([1, 2], [3, 4], [5, 6]));//[1, 2, 3, 4, 5, 6]
+console.log(union([1, 2], [1, 2, 3, 3], [5, 6, 1]));//[1, 2, 3, 5, 6]
+console.log(union([], [], [], [], [], [], [2]));//[2]
+
+
     </script>
   </body>
 </html>
